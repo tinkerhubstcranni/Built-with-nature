@@ -681,6 +681,157 @@ body::before {
 .timeline-content p  { color: var(--muted); font-size: 0.85rem; line-height: 1.7; }
 
 /* ===========================
+   PRIZES
+=========================== */
+.prizes {
+  background: var(--bg2);
+  position: relative;
+  overflow: hidden;
+}
+
+.prizes-first {
+  margin-bottom: 4.5rem;
+}
+
+.first-prize-badge {
+  display: inline-block;
+  background: rgba(196, 124, 43, 0.12);
+  border: 1.5px solid rgba(196, 124, 43, 0.35);
+  color: var(--accent2);
+  font-family: var(--body);
+  font-size: 0.8rem;
+  font-weight: 700;
+  padding: 0.35rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.first-prize-box {
+  display: flex;
+  align-items: center;
+  gap: 2rem;
+  background: var(--bg);
+  border: 2px solid var(--border);
+  border-radius: 16px;
+  padding: 2.25rem;
+  transition: border-color .25s, transform .25s, box-shadow .25s;
+}
+
+.first-prize-box:hover {
+  border-color: var(--accent2);
+  transform: translateY(-3px);
+  box-shadow: 0 14px 32px rgba(196, 124, 43, 0.12);
+}
+
+.first-prize-icon {
+  font-size: 3.5rem;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.first-prize-text h3 {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.first-prize-text p {
+  color: var(--muted);
+  font-size: 0.95rem;
+  line-height: 1.75;
+}
+
+.first-prize-text strong {
+  color: var(--accent2);
+}
+
+.sidequests-header {
+  margin-bottom: 2rem;
+}
+
+.sidequests-title {
+  font-family: var(--display);
+  font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+  color: var(--text);
+  margin-bottom: 0.5rem;
+}
+
+.sidequests-sub {
+  color: var(--muted);
+  font-size: 0.95rem;
+  max-width: 600px;
+  line-height: 1.7;
+}
+
+.sidequests-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.sq-card {
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  border-radius: 14px;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  transition: border-color .25s, transform .25s, box-shadow .25s;
+}
+
+.sq-card:hover {
+  border-color: var(--accent);
+  transform: translateY(-4px);
+  box-shadow: 0 12px 28px rgba(74, 124, 89, 0.12);
+}
+
+.sq-img-wrap {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  background: var(--bg3);
+}
+
+.sq-img-wrap img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform .4s ease;
+}
+
+.sq-card:hover .sq-img-wrap img {
+  transform: scale(1.06);
+}
+
+.sq-body {
+  padding: 1.25rem 1.35rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.sq-emoji {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+.sq-body h4 {
+  font-family: var(--display);
+  font-size: 1.05rem;
+  color: var(--text);
+}
+
+.sq-body p {
+  color: var(--muted);
+  font-size: 0.85rem;
+  line-height: 1.65;
+}
+
+/* ===========================
    FAQ
 =========================== */
 .faq {
@@ -971,4 +1122,91 @@ body::before {
   .footer-bottom { flex-direction: column; }
 
   .rules-grid { grid-template-columns: 1fr; }
+
+  .first-prize-box { flex-direction: column; text-align: center; padding: 1.75rem; }
+}
+
+
+/* ===========================
+   TREASURE POPUP
+=========================== */
+.treasure-fab {
+  position: fixed;
+  right: 1.5rem;
+  bottom: 1.75rem;
+  z-index: 1200;
+  width: 3.5rem;
+  height: 3.5rem;
+  border-radius: 50%;
+  border: 2px solid var(--accent2);
+  background: var(--bg);
+  box-shadow: 0 8px 24px rgba(44, 36, 22, 0.18);
+  font-size: 1.75rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.treasure-fab:hover {
+  transform: translateY(-3px) scale(1.06);
+  box-shadow: 0 12px 28px rgba(44, 36, 22, 0.24);
+}
+
+.treasure-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 1300;
+  background: rgba(44, 36, 22, 0.55);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1.5rem;
+}
+
+.treasure-modal[hidden] {
+  display: none;
+}
+
+.treasure-card {
+  position: relative;
+  max-width: 460px;
+  width: 100%;
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2.25rem 2rem 2rem;
+  box-shadow: 0 20px 50px rgba(44, 36, 22, 0.25);
+  text-align: center;
+}
+
+.treasure-close {
+  position: absolute;
+  top: 0.75rem;
+  right: 0.9rem;
+  background: none;
+  border: none;
+  font-size: 1.75rem;
+  line-height: 1;
+  color: var(--muted);
+  cursor: pointer;
+}
+
+.treasure-close:hover {
+  color: var(--text);
+}
+
+.treasure-icon {
+  font-size: 2.5rem;
+  margin-bottom: 0.75rem;
+}
+
+.treasure-quote {
+  font-family: var(--display);
+  font-size: 1.1rem;
+  line-height: 1.7;
+  color: var(--text);
 }
