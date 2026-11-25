@@ -252,3 +252,31 @@ if (hero) {
     hero.style.setProperty('--py', yPct * 8 + 'px');
   });
 }
+
+
+// ── Treasure Riddle Popup ─────────────────────────────────────────
+const treasureFab = document.getElementById('treasureFab');
+const treasureModal = document.getElementById('treasureModal');
+const treasureClose = document.getElementById('treasureClose');
+
+if (treasureFab && treasureModal && treasureClose) {
+  treasureFab.addEventListener('click', () => {
+    treasureModal.hidden = false;
+  });
+
+  treasureClose.addEventListener('click', () => {
+    treasureModal.hidden = true;
+  });
+
+  treasureModal.addEventListener('click', (e) => {
+    if (e.target === treasureModal) {
+      treasureModal.hidden = true;
+    }
+  });
+
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !treasureModal.hidden) {
+      treasureModal.hidden = true;
+    }
+  });
+}
